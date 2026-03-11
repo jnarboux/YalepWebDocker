@@ -42,8 +42,9 @@ RUN . ~/.profile \
     && elan default stable
 
 # Cloning YalepWeb repository  freezing at Yalep v0.1.2
-RUN git clone git@github.com:leanprover-community/lean4web.git ;\
-    cd lean4web ;\
+RUN git clone git@gricad-gitlab.univ-grenoble-alpes.fr:yalep/yalepweb.git ;\
+    cd yalepweb ;\
+    git checkout v0.1.2 ;\
     rm -rf .git
 
 
