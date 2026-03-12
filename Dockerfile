@@ -42,10 +42,15 @@ RUN . ~/.profile \
     && elan default stable
 
 # Cloning YalepWeb repository  freezing at Yalep v0.1.2
-RUN git clone git@gricad-gitlab.univ-grenoble-alpes.fr:yalep/yalepweb.git ;\
-    cd yalepweb ;\
-    git checkout v0.1.2 ;\
-    rm -rf .git
+RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/v0.1.2/yalepweb-v0.1.2.zip --output yalepweb.zip && \
+    unzip yalepweb.zip && \
+    mv yalepweb-v0.1.2 yalepweb && \
+    rm yalepweb.zip
+
+#RUN git clone git@gricad-gitlab.univ-grenoble-alpes.fr:yalep/yalepweb.git ;\
+#    cd yalepweb ;\
+#    git checkout v0.1.2 ;\
+#    rm -rf .git
 
 
 # Bubblewrap install
