@@ -32,7 +32,7 @@ RUN nvm install && npm --version
 RUN npm install --global yarn && yarn --version
 
 # Git install
-RUN apt-get install -y git
+RUN apt-get install -y git unzip
 
 # Install lean
 ENV PATH=/root/.elan/bin:$PATH
