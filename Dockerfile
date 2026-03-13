@@ -32,7 +32,7 @@ RUN nvm install && npm --version
 RUN npm install --global yarn && yarn --version
 
 # Git install
-RUN apt-get install -y git unzip
+RUN apt-get install -y git
 
 # Install lean
 ENV PATH=/root/.elan/bin:$PATH
@@ -41,17 +41,11 @@ RUN . ~/.profile \
     && elan toolchain install $(curl https://raw.githubusercontent.com/leanprover-community/mathlib/master/leanpkg.toml | grep lean_version | awk -F'"' '{print $2}') \
     && elan default stable
 
-# Cloning YalepWeb repository  freezing at Yalep v0.1.2
-RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/v0.1.2/yalepweb-v0.1.2.zip --output yalepweb.zip && \
-    unzip yalepweb.zip && \
-    mv yalepweb-v0.1.2 yalepweb && \
-    rm yalepweb.zip
-
-#RUN git clone git@gricad-gitlab.univ-grenoble-alpes.fr:yalep/yalepweb.git ;\
-#    cd yalepweb ;\
-#    git checkout v0.1.2 ;\
-#    rm -rf .git
-
+# Cloning YalepWeb repository  freezing at Yalep v0.1.3
+RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/v0.1.3/yalepweb-v0.1.3.tar.gz --output yalepweb.tgz && \
+    tar -xf yalepweb.tgz && \
+    mv yalepweb-v0.1.3 yalepweb && \
+    rm yalepweb.tgz
 
 # Bubblewrap install
 # Optionnal: used for secure deploiement
