@@ -42,9 +42,9 @@ RUN . ~/.profile \
     && elan default stable
 
 # Cloning YalepWeb repository  freezing at Yalep v0.1.3
-RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/v0.1.3/yalepweb-v0.1.3.tar.gz --output yalepweb.tgz && \
+RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/y0.2.4/yalepweb-v0.2.4.tar.gz --output yalepweb.tgz && \
     tar -xf yalepweb.tgz && \
-    mv yalepweb-v0.1.3 yalepweb && \
+    mv yalepweb-y0.2.4 yalepweb && \
     rm yalepweb.tgz
 
 # Bubblewrap install
