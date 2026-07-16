@@ -41,9 +41,9 @@ RUN . ~/.profile \
     && elan toolchain install $(curl https://raw.githubusercontent.com/leanprover-community/mathlib/master/leanpkg.toml | grep lean_version | awk -F'"' '{print $2}') \
     && elan default stable
 
-RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/y0.2.4/yalepweb-y0.2.4.tar.gz --output yalepweb.tgz && \
+RUN curl https://gricad-gitlab.univ-grenoble-alpes.fr/yalep/yalepweb/-/archive/y0.2.6/yalepweb-y0.2.6.tar.gz --output yalepweb.tgz && \
     tar -xf yalepweb.tgz && \
-    mv yalepweb-y0.2.4 yalepweb && \
+    mv yalepweb-y0.2.6 yalepweb && \
     rm yalepweb.tgz
 
 # Bubblewrap install
